@@ -1,0 +1,62 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import plotly.express as px
+
+# Sample data
+data = {
+    'Year': list(range(2010, 2025)),
+    'Brazil_Production': np.random.uniform(2.5, 3.7, 15),
+    'USA_Production': np.random.uniform(3.0, 4.0, 15),
+    'Brazil_Export': np.random.uniform(1.5, 2.6, 15),
+    'USA_Export': np.random.uniform(2.0, 3.0, 15)
+}
+
+df = pd.DataFrame(data)
+
+# Production Chart
+plt.figure(figsize=(10, 6))
+plt.plot(df['Year'], df['Brazil_Production'], marker='o', label='Brazil Production')
+plt.plot(df['Year'], df['USA_Production'], marker='s', label='USA Production')
+plt.title('Cotton Production (2010-2024)')
+plt.xlabel('Year')
+plt.ylabel('Million Tons')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Export Chart
+plt.figure(figsize=(10, 6))
+plt.plot(df['Year'], df['Brazil_Export'], marker='o', label='Brazil Export')
+plt.plot(df['Year'], df['USA_Export'], marker='s', label='USA Export')
+plt.title('Cotton Export (2010-2024)')
+plt.xlabel('Year')
+plt.ylabel('Million Tons')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# 3D Production and Export Chart
+fig = plt.figure(figsize=(12, 8))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(df['Year'], df['Brazil_Production'], df['Brazil_Export'], marker='o', label='Brazil')
+ax.plot(df['Year'], df['USA_Production'], df['USA_Export'], marker='^', label='USA')
+ax.set_title('Cotton Production and Export (2010-2024)')
+ax.set_xlabel('Year')
+ax.set_ylabel('Production (Mt)')
+ax.set_zlabel('Export (Mt)')
+ax.legend()
+plt.show()
+
+# Interactive Charts with Plotly
+fig = px.line(df, x='Year', y=['Brazil_Production', 'USA_Production'], labels={'value': 'Production (Mt)', 'variable': 'Country'}, title='Cotton Production (2010-2024)')
+fig.show()
+
+fig = px.line(df, x='Year', y=['Brazil_Export', 'USA_Export'], labels={'value': 'Export (Mt)', 'variable': 'Country'}, title='Cotton Export (2010-2024)')
+fig.show()
+
+fig = px.scatter_3d(df, x='Year', y='Brazil_Production', z='Brazil_Export', color='Brazil_Production', title='Brazil Cotton Production and Export (3D)')
+fig.show()
+
+fig = px.scatter_3d(df, x='Year', y='USA_Production', z='USA_Export', color='USA_Production', title='USA Cotton Production and Export (3D)')
+fig.show()
