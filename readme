@@ -1,0 +1,19 @@
+This project aims to analyze and visualize cotton production and export in Brazil and the United States, using 2D and 3D charts for a better understanding of the data. The analysis includes interactive charts to facilitate information exploration. Historical data on production and export from both countries will be used to identify trends and compare performance over the years.
+
+Table of Contents
+Introduction
+Data Sources
+Installation
+Usage
+Visualizations
+Cotton Production (2010-2024)
+Cotton Export (2010-2024)
+3D Cotton Production and Export (2010-2024)
+Interactive Charts
+Contributing
+License
+Introduction
+This project provides visual insights into the cotton production and export trends of Brazil and the United States from 2010 to 2024. The visualizations include 2D and 3D charts created using Python libraries Matplotlib and Plotly.
+
+Data Sources
+The data used in this project is based on hypothetical cotton production and export figures for Brazil and the United States.
